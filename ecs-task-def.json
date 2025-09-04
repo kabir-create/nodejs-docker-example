@@ -1,0 +1,22 @@
+{
+  "family": "my-ecs-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::415403161253:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "my-app",
+      "image": "415403161253.dkr.ecr.ap-south-1.amazonaws.com/myimage:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ]
+    }
+  ]
+}
